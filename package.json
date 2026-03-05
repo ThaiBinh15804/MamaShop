@@ -1,0 +1,10 @@
+{
+  "name": "MamaShop",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A e-commerce platform for selling products online.",
+  "scripts": {
+    "prepare": "cd ./apps && yarn"
+  },
+  "author": "Vo Thai Binh"
+}
