@@ -78,3 +78,10 @@ rules:
     - Break implementation into small steps (layout, components, pages).
     - Each task should implement a small UI unit.
     - Avoid generating entire screens or large modules in a single task.
+
+  components:
+    - Before creating a new component, check whether an equivalent component already exists.
+    - Avoid duplicate components with similar structure or purpose.
+    - Reuse shared system components whenever possible.
+    - Page implementations must compose existing components rather than redefining them.
+    - Variants and states of these components must be implemented through props rather than separate components.
