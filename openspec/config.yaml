@@ -1,20 +1,80 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  PROJECT OVERVIEW
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  This project builds a frontend web application from a Figma design.
+  The system must follow the architecture derived from the
+  Bulletproof React repository.
+
+  OpenSpec specifications are the single source of truth for:
+
+  - frontend architecture
+  - project structure
+  - coding conventions
+
+  All implementation must comply with these specifications.
+
+  --------------------------------------------------
+
+  IMPLEMENTATION PHASE
+
+  The current phase focuses only on building the UI.
+
+  Backend APIs must NOT be integrated.
+
+  Instead the system should:
+
+  - use static mock data
+  - simulate API responses locally
+  - access data through a data abstraction layer
+
+  This ensures mock data can later be replaced with real APIs
+  without changing UI components.
+
+  --------------------------------------------------
+
+  REFERENCE ARCHITECTURE
+
+  The architecture blueprint is derived from Bulletproof React.
+
+  Architecture patterns must be identified from:
+
+  - docs/
+  - apps/
+
+  The resulting OpenSpec specifications must reflect real
+  patterns observed in the reference repository.
+
+  --------------------------------------------------
+
+  ARCHITECTURE PRINCIPLES
+
+  The frontend follows a feature-based modular architecture.
+
+  Core principles:
+
+  - Feature isolation
+  - Clear module boundaries
+  - Shared libraries for reusable logic
+  - Separation between UI, domain logic, and infrastructure
+
+  Feature modules must remain independent and should not
+  directly depend on other feature modules.
+
+rules:
+
+  specs:
+    - Specifications must reflect real architecture patterns from the codebase.
+    - Avoid introducing architectural patterns not present in the reference repository.
+    - Define architecture rules as requirements rather than implementation details.
+
+  design:
+    - UI structure must follow the hierarchy defined in the Figma design.
+    - Prefer reusable components instead of page-specific components.
+    - Document component hierarchy and layout structure.
+
+  tasks:
+    - Break implementation into small steps (layout, components, pages).
+    - Each task should implement a small UI unit.
+    - Avoid generating entire screens or large modules in a single task.

@@ -1,0 +1,33 @@
+/* ============================================
+   Design Token: Breakpoints & Grid System
+   Extracted from EasyMart Figma Styleguide
+   12-column responsive grid
+   ============================================ */
+
+:root {
+  /* Breakpoint Values */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1440px;
+
+  /* Grid System - Mobile (375px, 12 columns) */
+  --grid-columns-mobile: 12;
+  --grid-column-width-mobile: 23.5px;
+  --grid-gutter-mobile: 16px;
+  --grid-total-width-mobile: 375px;
+
+  /* Grid System - Tablet (768px, 12 columns) */
+  --grid-columns-tablet: 12;
+  --grid-column-width-tablet: 53.5px;
+  --grid-gutter-tablet: 24px;
+  --grid-total-width-tablet: 768px;
+
+  /* Grid System - Desktop (1440px, 12 columns) */
+  --grid-columns-desktop: 12;
+  --grid-column-width-desktop: 82px;
+  --grid-gutter-desktop: 32px;
+  --grid-total-width-desktop: 1440px;
+
+  /* Content Max Width */
+  --content-max-width: 1440px;
+}
