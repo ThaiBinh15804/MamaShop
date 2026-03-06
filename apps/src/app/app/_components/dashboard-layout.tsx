@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, PanelLeft, Folder, Users, User2 } from 'lucide-react';
+import { Home, PanelLeft, User2 } from 'lucide-react';
 import NextLink from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -16,7 +16,7 @@ import {
 } from '@/components/ui/dropdown';
 import { Link } from '@/components/ui/link';
 import { paths } from '@/config/paths';
-import { useLogout, useUser } from '@/lib/auth';
+import { useLogout } from '@/lib/auth';
 import { cn } from '@/utils/cn';
 
 type SideNavigationItem = {
@@ -37,7 +37,6 @@ const Logo = () => {
 };
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
-  const user = useUser();
   const pathname = usePathname();
   const router = useRouter();
   const logout = useLogout({
@@ -45,12 +44,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   });
   const navigation = [
     { name: 'Dashboard', to: paths.app.root.getHref(), icon: Home },
-    { name: 'Discussions', to: paths.app.discussions.getHref(), icon: Folder },
-    user.data?.role === 'ADMIN' && {
-      name: 'Users',
-      to: paths.app.users.getHref(),
-      icon: Users,
-    },
   ].filter(Boolean) as SideNavigationItem[];
 
   return (
@@ -141,12 +134,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem
-                onClick={() => router.push(paths.app.profile.getHref())}
-                className={cn('block px-4 py-2 text-sm text-gray-700')}
-              >
-                Your Profile
-              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 className={cn('block px-4 py-2 text-sm text-gray-700 w-full')}

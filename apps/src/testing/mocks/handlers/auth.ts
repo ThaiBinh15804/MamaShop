@@ -48,34 +48,16 @@ export const authHandlers = [
       }
 
       let teamId;
-      let role;
+      let role = 'ADMIN';
 
-      if (!userObject.teamId) {
-        const team = db.team.create({
-          name: userObject.teamName ?? `${userObject.firstName} Team`,
-        });
-        await persistDb('team');
-        teamId = team.id;
+      // Generate a team ID for the user (no actual team creation needed)
+      if (userObject.teamId) {
+        teamId = userObject.teamId;
         role = 'ADMIN';
       } else {
-        const existingTeam = db.team.findFirst({
-          where: {
-            id: {
-              equals: userObject.teamId,
-            },
-          },
-        });
-
-        if (!existingTeam) {
-          return HttpResponse.json(
-            {
-              message: 'The team you are trying to join does not exist!',
-            },
-            { status: 400 },
-          );
-        }
-        teamId = userObject.teamId;
-        role = 'USER';
+        // Generate a new team ID for this user
+        teamId = `team_${Math.random().toString(36).substr(2, 9)}`;
+        role = 'ADMIN';
       }
 
       db.user.create({
