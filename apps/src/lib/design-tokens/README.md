@@ -13,6 +13,7 @@ design-tokens/
 ├── spacing.ts         # Spacing scale (8px base unit, 0px-40px)
 ├── effects.ts         # Shadows and border-radius
 ├── breakpoints.ts     # Responsive breakpoints and grid system
+├── responsive.ts      # Screen-specific spacing and sizing tokens
 ├── types.ts           # Type definitions for design tokens
 └── index.ts           # Barrel export (main entry point)
 ```
@@ -117,6 +118,53 @@ import { BREAKPOINTS, GRID_CONFIG } from 'src/lib/design-tokens';
 const isMobile = window.innerWidth < BREAKPOINTS.MOBILE;
 const gridConfig = GRID_CONFIG.DESKTOP;
 ```
+
+### Responsive Tokens
+
+Screen-specific spacing and sizing values that adapt to different viewport sizes. These tokens complement the base design token system with breakpoint-aware values.
+
+**Token Sets:**
+- **RESPONSIVE_MOBILE** (< 640px): Compact spacing optimized for small screens
+- **RESPONSIVE_TABLET** (640px - 1024px): Balanced spacing for medium screens
+- **RESPONSIVE_DESKTOP** (> 1024px): Generous spacing for large screens
+
+**Available Properties:**
+- Container padding/margins (horizontal and vertical)
+- Grid gaps (compact, normal, relaxed)
+- Component sizing (button height, icon sizes)
+- Typography spacing (line heights)
+- Grid columns (responsive column counts)
+
+**Usage:**
+```typescript
+import { RESPONSIVE_MOBILE, RESPONSIVE_TABLET, RESPONSIVE_DESKTOP } from 'src/lib/design-tokens';
+
+// Use in components with container query or media queries
+const getGridGap = (screenSize: 'mobile' | 'tablet' | 'desktop') => {
+  switch(screenSize) {
+    case 'mobile': return RESPONSIVE_MOBILE.GRID_GAP_NORMAL;
+    case 'tablet': return RESPONSIVE_TABLET.GRID_GAP_NORMAL;
+    case 'desktop': return RESPONSIVE_DESKTOP.GRID_GAP_NORMAL;
+  }
+};
+
+// For responsive grid layout:
+const gridColumns = RESPONSIVE_DESKTOP.GRID_COLUMNS; // 4 columns on desktop
+```
+
+**Breakpoint Constants:**
+```typescript
+export const BREAKPOINTS = {
+  SM: 640,    // Mobile to Tablet
+  MD: 1024,   // Tablet to Desktop
+};
+```
+
+**When to Use Responsive Tokens:**
+- Dynamic grid layouts that need column counts based on screen size
+- Component sizing that varies significantly across breakpoints
+- Container padding/margins that scale with viewport
+- Gap values between grid items
 
 ## CSS Custom Properties
 

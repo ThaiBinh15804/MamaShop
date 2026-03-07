@@ -132,7 +132,7 @@ export const StylingPatterns: StoryObj = {
           <div>
             <label
               htmlFor="email"
-              className="block text-body-md font-semibold text-neutral-900 mb-2"
+              className="mb-2 block text-body-md font-semibold text-neutral-900"
             >
               Email Address
             </label>
@@ -148,7 +148,7 @@ export const StylingPatterns: StoryObj = {
           <div>
             <label
               htmlFor="message"
-              className="block text-body-md font-semibold text-neutral-900 mb-2"
+              className="mb-2 block text-body-md font-semibold text-neutral-900"
             >
               Message
             </label>
@@ -247,7 +247,7 @@ export const StylingPatterns: StoryObj = {
             <span>Avoid mixing Tailwind with inline styles inconsistently</span>
           </li>
           <li className="flex gap-3">
-            <span className="text-error font-bold">✗</span>
+            <span className="font-bold text-error">✗</span>
             <span>Don&apos;t create custom sizes not in the design system</span>
           </li>
         </ul>

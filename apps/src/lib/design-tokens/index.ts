@@ -47,6 +47,16 @@ export {
   type GridConfig,
 } from './breakpoints';
 
+// Responsive design tokens (screen-specific spacing)
+export {
+  RESPONSIVE_MOBILE,
+  RESPONSIVE_TABLET,
+  RESPONSIVE_DESKTOP,
+  BREAKPOINTS as RESPONSIVE_BREAKPOINTS,
+  getResponsiveValue,
+  getGridColumns,
+} from './responsive';
+
 // Type definitions
 export type {
   TokenType,
